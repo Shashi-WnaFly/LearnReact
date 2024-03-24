@@ -1,0 +1,29 @@
+{
+  "name": "learnreact",
+  "version": "1.0.0",
+  "description": "This is the namaste react from Akshay Saini",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shashi-WnaFly/LearnReact.git"
+  },
+  "keywords": [
+    "react",
+    "namaste",
+    "react",
+    "shashi",
+    "anand"
+  ],
+  "author": "Akshay Saini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shashi-WnaFly/LearnReact/issues"
+  },
+  "homepage": "https://github.com/Shashi-WnaFly/LearnReact#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
