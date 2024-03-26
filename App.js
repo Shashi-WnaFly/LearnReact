@@ -1,6 +1,8 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 let heading = React.createElement("h1", { id: "heading", babu: "sona" }, "Hello World From React!");
 let root = ReactDOM.createRoot(document.getElementById("root"));
-let body = ReactDOM.createRoot(document.querySelector("body"));
 
 // root.render(heading);
 
