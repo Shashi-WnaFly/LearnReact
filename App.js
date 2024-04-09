@@ -1,21 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-let heading = React.createElement("h1", { id: "heading", babu: "sona" }, "Hello World From React!");
-let root = ReactDOM.createRoot(document.getElementById("root"));
+let heading = React.createElement("h1", {id: "parent"}, "Namaste React");
 
-// root.render(heading);
+let root = ReactDOM.createRoot(document.getElementById('root'));
 
-let heading1 = React.createElement("div", { id: "parent" },
-    [React.createElement("div", { id: "child" },
-        [React.createElement("h1", {}, "Namaste React."),
-        React.createElement("h2", {}, "I'm the h2 tag.")]
-    ),
+const NamComponent = () => <h1>Namaste React</h1>;
 
-    React.createElement("div", { id: "child2" },
-        [React.createElement("h1", {}, "Namaste React."),
-        React.createElement("h2", {}, "I'm the h2 tag.")]
-    )]
+const HeadingComponent = () => (
+    <div id="container">
+        {heading}
+        <NamComponent />
+        <h1 className="hello">Hello My Name Is Sunny</h1>
+    </div>
 );
-
-root.render(heading1);
+root.render(<HeadingComponent />);
