@@ -72,3 +72,18 @@ body{
     gap: 1rem;
     justify-content: space-evenly;
 }
+
+.top-btn{
+    padding: 8px 1rem;
+    margin: 1rem;
+    outline: 0;
+    border: 0;
+    background: linear-gradient(180deg, blue, #4d90fe);
+    color: #fff;
+    border-radius: 5px;
+}
+
+.top-btn:active{
+    background: #fff;
+    color: #212121;
+}
