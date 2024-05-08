@@ -1,4 +1,4 @@
-export const LOGO_URL = require('../../images/slack.png');
+export const LOGO_URL = require('../../images/burger-logo.png');
 
 export const USER_URL = require('../../images/user.png');
 

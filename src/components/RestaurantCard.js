@@ -11,7 +11,7 @@ const RestaurantCard = (props)=>{
     } = resData?.info;
     return (
     <div className="res_card">
-        <img src={CARD_IMG_URL+resData.info.cloudinaryImageId} alt="food logo" className="foodLogo"/>
+        <div className="cardImage" ><img src={CARD_IMG_URL+resData.info.cloudinaryImageId} alt="food logo" className="foodLogo"/></div>
         <div className="details">
             <h3>{name}</h3>
             <h4>{cuisines.join(", ")}</h4>
