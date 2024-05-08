@@ -11,7 +11,7 @@ const Body = ()=>{
         try{
             const data = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=25.5940947&lng=85.1375645&page_type=DESKTOP_WEB_LISTING");
             const json = await data.json();
-            console.log(json)
+            
             setRestaurantList(json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
             setFilteredList(json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
         }
