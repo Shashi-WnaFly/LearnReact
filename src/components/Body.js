@@ -11,7 +11,7 @@ const Body = ()=>{
         try{
             const data = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=25.5940947&lng=85.1375645&page_type=DESKTOP_WEB_LISTING");
             const json = await data.json();
-            
+            console.log(json)
             setRestaurantList(json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
             setFilteredList(json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
         }
@@ -28,7 +28,8 @@ const Body = ()=>{
         <div className="body">
             <div className="tools">
                 <button className="top-btn" onClick={()=>{
-                    setRestaurantList(RestaurantList.filter( (obj) => obj.info.avgRating > 4));
+                    const filteredList = RestaurantList.filter( (res) => res.info.avgRating > 4);
+                    setFilteredList(filteredList);
                 }}>Top Rated Restaurant</button>
                 <div id="search_bar">
                     <input type="text" value={SearchRes} onChange={(e)=>{
