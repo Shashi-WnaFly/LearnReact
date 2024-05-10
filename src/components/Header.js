@@ -1,5 +1,6 @@
 import { LOGO_URL } from '../utils/constants';
-import { useState} from "react";
+import { useState } from "react";
+import { Link } from 'react-router-dom';
 
 const Header = ()=>{
     const [user, setUser] = useState("Login");
@@ -9,10 +10,10 @@ const Header = ()=>{
             <img src={LOGO_URL} alt="logo" id="logo"/>
             <div>
                 <ul className="links">
-                    <li><a href='/home'>Home</a></li>
-                    <li><a href='/about'>About</a></li>
+                    <li><Link to='/home'>Home</Link></li>
+                    <li><Link to='/about'>About</Link></li>
                     <li>Service</li>
-                    <li><Link to href='/contactus'>Contacts</Link></li>
+                    <li><Link to='/contactus'>Contacts</Link></li>
                     <li><button className='login-btn' onClick={()=>{
                         if(user==="Login") setUser("Logout");
                         else setUser("Login");
