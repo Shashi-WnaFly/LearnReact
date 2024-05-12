@@ -10,9 +10,9 @@ const Header = ()=>{
             <img src={LOGO_URL} alt="logo" id="logo"/>
             <div>
                 <ul className="links">
-                    <li><Link to='/home'>Home</Link></li>
+                    <li><Link to='/'>Home</Link></li>
                     <li><Link to='/about'>About</Link></li>
-                    <li>Service</li>
+                    <li><Link to='/service'>Service</Link></li>
                     <li><Link to='/contactus'>Contacts</Link></li>
                     <li><button className='login-btn' onClick={()=>{
                         if(user==="Login") setUser("Logout");
