@@ -10,6 +10,7 @@ const ResItem = ()=>{
 
     useEffect( () => {
         getResInfo();
+        console.log(resDetails);
     },[])
 
     async function getResInfo(){
@@ -19,7 +20,6 @@ const ResItem = ()=>{
     }
 
     if(resDetails === null) return <Shimmer />;
-    console.log(resDetails);
     const {name, costForTwoMessage, cuisines} = resDetails?.data?.cards[2]?.card?.card?.info;
     const items = resDetails?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
     console.log(items)

@@ -16,7 +16,6 @@ const Body = ()=>{
             
             setRestaurantList(json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
             setFilteredList(json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants)
-            console.log(RestaurantList)
         }
         catch{
             console.log("No data found");
@@ -25,7 +24,6 @@ const Body = ()=>{
 
     useEffect(() => {
         getCards();
-        console.log(RestaurantList)
     }, []);
 
    return (RestaurantList.length === 0) ? < Shimmer /> : (
@@ -48,7 +46,7 @@ const Body = ()=>{
             <div className="res-container">
                 {
                     FilteredList.map( (RestaurantList) => (
-                        <Link key={RestaurantList.info.id} to={"/restaurants/" + RestaurantList.info.id} ><RestaurantCard resData={RestaurantList}/></Link>
+                        <Link style={{textDecoration: 'none'}} key={RestaurantList.info.id} to={"/restaurants/" + RestaurantList.info.id} ><RestaurantCard resData={RestaurantList}/></Link>
                 ))
                 }
             </div>
