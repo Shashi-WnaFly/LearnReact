@@ -1,4 +1,6 @@
 import { CARD_IMG_URL } from "../utils/constants";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
@@ -11,12 +13,11 @@ const RestaurantCard = (props) => {
     cloudinaryImageId,
     aggregatedDiscountInfoV3,
   } = resData?.info;
-  console.log(resData);
-  const imo = CARD_IMG_URL + cloudinaryImageId;
+  // console.log(resData);
   return (
     <div className="res_card">
       <div className="cardImage">
-        <img src={imo} alt="food logo" className="foodLogo" />
+        <img src={CARD_IMG_URL+cloudinaryImageId} alt="food logo" className="foodLogo" />
         <div className="shadow">
           <div className="offers">
             {aggregatedDiscountInfoV3?.header}{" "}
@@ -27,7 +28,7 @@ const RestaurantCard = (props) => {
       <div className="details">
         <div>{name}</div>
         <div>
-          {avgRating} : {sla.slaString}
+        <FontAwesomeIcon icon={faStar} />{" "}{avgRating} : {sla.slaString}
         </div>
         <p>{cuisines.join(", ")}</p>
         <p>{locality}</p>

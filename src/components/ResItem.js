@@ -10,7 +10,7 @@ const ResItem = ()=>{
 
     useEffect( () => {
         getResInfo();
-        console.log(resDetails);
+        // console.log(resDetails);
     },[])
 
     async function getResInfo(){
