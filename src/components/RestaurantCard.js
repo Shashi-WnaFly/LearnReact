@@ -1,7 +1,6 @@
 import { CARD_IMG_URL } from "../utils/constants";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-
+import { GoDotFill } from "react-icons/go";
+import { IoMdStar } from "react-icons/io";
 const RestaurantCard = (props) => {
   const { resData } = props;
   const {
@@ -17,19 +16,25 @@ const RestaurantCard = (props) => {
   return (
     <div className="res_card">
       <div className="cardImage">
-        <img src={CARD_IMG_URL+cloudinaryImageId} alt="food logo" className="foodLogo" />
+        <img
+          src={CARD_IMG_URL + cloudinaryImageId}
+          alt="food logo"
+          className="foodLogo"
+        />
         <div className="shadow">
-          <div className="offers">
+          <p className="offers">
             {aggregatedDiscountInfoV3?.header}{" "}
             {aggregatedDiscountInfoV3?.subHeader}
-          </div>
-        </div>
+          </p>
       </div>
+        </div>
       <div className="details">
         <div>{name}</div>
-        <div>
-        <FontAwesomeIcon icon={faStar} />{" "}{avgRating} : {sla.slaString}
-        </div>
+        <p className="star">
+          {" "}
+          <IoMdStar size={18} className="fa-star" />{avgRating}
+          <GoDotFill size={8} />{sla.slaString}
+        </p>
         <p>{cuisines.join(", ")}</p>
         <p>{locality}</p>
       </div>
