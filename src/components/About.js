@@ -1,15 +1,27 @@
 import User from "./User";
 import UserClass from "./UserClass";
+import {Component} from "react";
 
-const About = () => {
-    return(
+class About extends Component {
+
+    constructor(props){
+        super(props);
+    }
+
+    componentDidMount(){
+        // console.log("parent componentDidMount");
+    }
+
+    render(){
+        return(
         <div>
             <h1>About Page</h1>
             <h2>This is the first router page</h2>
-            <User name={"Shashi Anand"} location={"Patna"} />
-            <UserClass name={"Aman Anand"} location={"Kolkata"}/>
+            <User name={"Aman Anand"} location={"Kolkata"}/>
         </div>
-    )
+        )
+    } 
+    
 }
 
 export default About;

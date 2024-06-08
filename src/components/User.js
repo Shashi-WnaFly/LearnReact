@@ -1,18 +1,22 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 const User = (props) => {
     const {name, location} = props;
     const [ count, setCount ] = useState(0);
-    // const [ count1 ] = useState(1)
+    useEffect( ()=>{
+        const timer = setInterval( ()=>{
+            console.log("functional component");
+        }, 1000)
+
+        return ()=>{
+            clearInterval(timer); // this is how we can create something like componentWillUnmount
+        }
+    }, [])
     return (
         <div style={{border:"2px solid black", padding:"1rem"}}>
             <p>Name : {name}</p>
             <p>Location : {location}</p>
             <h2>count : {count}</h2>
-            <button onClick={()=>{
-                setCount(count+1)
-            }}>Count Increaser</button>
-            {/* <h2>count1 : {count1}</h2> */}
         </div>
     )
 }
