@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { RESTAURANT_API } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [RestaurantList, setRestaurantList] = useState([]);
@@ -31,6 +32,8 @@ const Body = () => {
     getCards();
   }, []);
 
+  const onlineStat = useOnlineStatus();
+  if(onlineStat === false) return <h1>Are Internet to connect kr ye bhi mujhe batana hai</h1>;
   return RestaurantList.length === 0 ? (
     <Shimmer />
   ) : (
