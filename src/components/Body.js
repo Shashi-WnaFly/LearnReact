@@ -4,11 +4,19 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { RESTAURANT_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurants from "../utils/useRestaurants";
 
 const Body = () => {
   const [RestaurantList, setRestaurantList] = useState([]);
   const [FilteredList, setFilteredList] = useState([]);
   const [SearchRes, setSearchRes] = useState("");
+
+  // const datae = useRestaurants();
+
+  // useEffect(()=>{
+  //   setRestaurantList(datae);
+  //   setFilteredList(datae);
+  // },[datae])
 
   async function getCards() {
     try {
@@ -33,7 +41,8 @@ const Body = () => {
   }, []);
 
   const onlineStat = useOnlineStatus();
-  if(onlineStat === false) return <h1>Are Internet to connect kr ye bhi mujhe batana hai</h1>;
+  if (onlineStat === false)
+    return <h1>Are Internet to connect kr ye bhi mujhe batana hai</h1>;
   return RestaurantList.length === 0 ? (
     <Shimmer />
   ) : (

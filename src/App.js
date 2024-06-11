@@ -1,14 +1,15 @@
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
+// import Service from "./components/Service";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import ResItem from "./components/ResItem";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-
+const Service = lazy(import("./components/Service"));
 const AppLayout = ()=>(
     <div className="AppLayout">
         <Header />
@@ -28,6 +29,10 @@ const AppRouter = createBrowserRouter([
             {
                 path: "/about",
                 element : <About />
+            },
+            {
+                path: "/service",
+                element: <Suspense><Service /></Suspense>
             },
             {
                 path: "/contactus",
