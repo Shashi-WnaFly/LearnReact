@@ -7,10 +7,10 @@ const Header = ()=>{
     const [user, setUser] = useState("Login");
     const onlineStat = useOnlineStatus();
     return (
-        <div className="header">
-            <img src={LOGO_URL} alt="logo" id="logo"/>
+        <div className="flex justify-between p-">
+            <img src={LOGO_URL} alt="logo" id="logo" className="w-20"/>
             <div>
-                <ul className="links">
+                <ul className="flex gap-1 ">
                     <li>Connectivity : {onlineStat == false ? "🔴" : "✅"}</li>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/about'>About</Link></li>
