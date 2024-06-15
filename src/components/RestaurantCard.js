@@ -14,7 +14,7 @@ const RestaurantCard = (props) => {
   } = resData?.info;
   // console.log(resData);
   return (
-    <div className="res_card">
+    <div className=" ">
       <div className="cardImage">
         <img
           src={CARD_IMG_URL + cloudinaryImageId}
@@ -41,5 +41,16 @@ const RestaurantCard = (props) => {
     </div>
   );
 };
+
+export const promotedResCard = (RestaurantCard) =>{
+  return () =>{
+    return(
+      <div>
+        <label>Promoted</label>
+        <RestaurantCard />
+      </div>
+    )
+  }
+}
 
 export default RestaurantCard;

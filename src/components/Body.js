@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {promotedResCard}from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -43,11 +43,12 @@ const Body = () => {
   const onlineStat = useOnlineStatus();
   if (onlineStat === false)
     return <h1>Are Internet to connect kr ye bhi mujhe batana hai</h1>;
+  const promotedRes = promotedResCard(RestaurantCard);
   return RestaurantList.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="tools">
+    <div className=" ">
+      <div className="">
         <button
           className="top-btn"
           onClick={() => {
@@ -80,14 +81,16 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="res-container">
+      <div className=" w-auto h-auto flex justify-evenly gap-6 align-middle flex-wrap mt-6 m-36">
         {FilteredList.map((RestaurantList) => (
           <Link
             style={{ textDecoration: "none" }}
             key={RestaurantList.info.id}
             to={"/restaurants/" + RestaurantList.info.id}
           >
-            <RestaurantCard resData={RestaurantList} />
+            <RestaurantCard resData={
+              RestaurantList.info.promoted ? promotedRes : RestaurantCard 
+              } />
           </Link>
         ))}
       </div>
