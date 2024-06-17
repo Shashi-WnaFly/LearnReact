@@ -1,22 +1,14 @@
-import RestaurantCard, {promotedResCard}from "./RestaurantCard";
+import RestaurantCard, { PromotedRestaurant } from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { RESTAURANT_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import useRestaurants from "../utils/useRestaurants";
 
 const Body = () => {
   const [RestaurantList, setRestaurantList] = useState([]);
   const [FilteredList, setFilteredList] = useState([]);
   const [SearchRes, setSearchRes] = useState("");
-
-  // const datae = useRestaurants();
-
-  // useEffect(()=>{
-  //   setRestaurantList(datae);
-  //   setFilteredList(datae);
-  // },[datae])
 
   async function getCards() {
     try {
@@ -40,17 +32,18 @@ const Body = () => {
     getCards();
   }, []);
 
+  const WithPromotedLevel = PromotedRestaurant(RestaurantCard);
+
   const onlineStat = useOnlineStatus();
   if (onlineStat === false)
     return <h1>Are Internet to connect kr ye bhi mujhe batana hai</h1>;
-  const promotedRes = promotedResCard(RestaurantCard);
   return RestaurantList.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className=" ">
+    <div className=" w-full">
       <div className="">
         <button
-          className="top-btn"
+          className=""
           onClick={() => {
             const filteredList = RestaurantList.filter(
               (res) => res.info.avgRating > 4
@@ -60,7 +53,7 @@ const Body = () => {
         >
           Top Rated Restaurant
         </button>
-        <div id="search_bar">
+        <div>
           <input
             type="text"
             value={SearchRes}
@@ -69,7 +62,6 @@ const Body = () => {
             }}
           />
           <button
-            className="top-btn"
             onClick={() => {
               const filteredList = RestaurantList.filter((res) =>
                 res.info.name.toLowerCase().includes(SearchRes.toLowerCase())
@@ -81,16 +73,17 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className=" w-auto h-auto flex justify-evenly gap-6 align-middle flex-wrap mt-6 m-36">
-        {FilteredList.map((RestaurantList) => (
+      <div className="flex w-10/12 justify-evenly gap-5 flex-wrap pt-10 ml-auto mr-auto">
+        {FilteredList.map((restaurant) => (
           <Link
-            style={{ textDecoration: "none" }}
-            key={RestaurantList.info.id}
-            to={"/restaurants/" + RestaurantList.info.id}
+            key={restaurant?.info.id}
+            to={"/restaurant_menu/" + restaurant?.info.id}
           >
-            <RestaurantCard resData={
-              RestaurantList.info.promoted ? promotedRes : RestaurantCard 
-              } />
+            {restaurant?.info.promoted ? (
+              <WithPromotedLevel resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

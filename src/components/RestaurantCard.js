@@ -14,40 +14,40 @@ const RestaurantCard = (props) => {
   } = resData?.info;
   // console.log(resData);
   return (
-    <div className=" ">
-      <div className="cardImage">
+    <div className=" w-64 h-80">
+      <div className=" w-full h-3/6 relative">
         <img
           src={CARD_IMG_URL + cloudinaryImageId}
           alt="food logo"
-          className="foodLogo"
+          className="h-full w-full object-cover"
         />
-        <div className="shadow">
-          <p className="offers">
+        <div className="flex justify-center">
+          <p className="absolute bottom-0 text-white w-11/12 self-center">
             {aggregatedDiscountInfoV3?.header}{" "}
             {aggregatedDiscountInfoV3?.subHeader}
           </p>
-      </div>
         </div>
-      <div className="details">
+      </div>
+      <div className=" overflow-hidden text-nowrap text-ellipsis">
         <div>{name}</div>
-        <p className="star">
+        <p className=" flex items-center">
           {" "}
           <IoMdStar size={18} className="fa-star" />{avgRating}
           <GoDotFill size={8} />{sla.slaString}
         </p>
-        <p>{cuisines.join(", ")}</p>
+        <p className="">{cuisines.join(", ")}</p>
         <p>{locality}</p>
       </div>
     </div>
   );
 };
 
-export const promotedResCard = (RestaurantCard) =>{
-  return () =>{
+export const PromotedRestaurant = (RestaurantCard) =>{
+  return (props) =>{
     return(
-      <div>
-        <label>Promoted</label>
-        <RestaurantCard />
+      <div className="relative">
+        <label className="absolute z-10 top-0 left-0 text-white p-2 bg-black m-2 rounded-lg">Promoted</label>
+        <RestaurantCard {...props}/>
       </div>
     )
   }
