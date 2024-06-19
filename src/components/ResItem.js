@@ -20,6 +20,7 @@ const ResItem = () => {
 
   return (
     <div className="w-6/12 mx-auto">
+      <p className=" text-2xl text-center font-bold my-4">{resMenu?.data?.cards[2]?.card?.card?.info?.name}</p>
       {items.map((category) => {
         if (
           category?.card?.card?.["@type"] ===
@@ -27,7 +28,7 @@ const ResItem = () => {
         )
           return (
             <div>
-              <h1 className=" font-bold size-10" key={category?.card?.card?.title}>{category?.card?.card?.title}</h1>
+              <h1 className=" font-bold p-2 border-b-4 my-4" key={category?.card?.card?.title}>{category?.card?.card?.title}</h1>
               <div><CategoryItems list={category} /></div>
 
             </div>
