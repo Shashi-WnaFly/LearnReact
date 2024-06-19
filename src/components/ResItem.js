@@ -1,34 +1,38 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useResMenu from "../utils/useResMenu";
+import { useEffect, useState } from "react";
+import CategoryItems from "./CategoryItems";
 
 const ResItem = () => {
   const { resId } = useParams();
+  // const [ resMenu, setResMenu ] = useState(null);
 
+  // useEffect(()=>{
   const resMenu = useResMenu(resId);
-
+  // setResMenu(data);
+  // },[]);
+  console.log(resMenu);
   if (resMenu === null) return <Shimmer />;
 
-  const { name, costForTwoMessage, cuisines } =
-    resMenu?.data?.cards[2]?.card?.card?.info;
   const items =
-    resMenu?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-      ?.card?.itemCards;
+    resMenu?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
   return (
-    <div className="resItem">
-      <h1>{name}</h1>
-      <h4>
-        {cuisines.join(", ")} - {costForTwoMessage}
-      </h4>
-      <h2>Menu</h2>
-      <ul>
-        {items.map((res) => (
-          <li key={res?.card?.info?.id}>
-            {res?.card?.info?.name} - Rs. {res?.card?.info?.price / 100}
-          </li>
-        ))}
-      </ul>
+    <div className="w-6/12 mx-auto">
+      {items.map((category) => {
+        if (
+          category?.card?.card?.["@type"] ===
+          "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+        )
+          return (
+            <div>
+              <h1 className=" font-bold size-10" key={category?.card?.card?.title}>{category?.card?.card?.title}</h1>
+              <div><CategoryItems list={category} /></div>
+
+            </div>
+          )
+      })}
     </div>
   );
 };

@@ -32,8 +32,10 @@ const RestaurantCard = (props) => {
         <div>{name}</div>
         <p className=" flex items-center">
           {" "}
-          <IoMdStar size={18} className="fa-star" />{avgRating}
-          <GoDotFill size={8} />{sla.slaString}
+          <IoMdStar size={18} className="fa-star" />
+          {avgRating}
+          <GoDotFill size={8} />
+          {sla.slaString}
         </p>
         <p className="">{cuisines.join(", ")}</p>
         <p>{locality}</p>
@@ -42,15 +44,17 @@ const RestaurantCard = (props) => {
   );
 };
 
-export const PromotedRestaurant = (RestaurantCard) =>{
-  return (props) =>{
-    return(
+export const PromotedRestaurant = (RestaurantCard) => {
+  return (props) => {
+    return (
       <div className="relative">
-        <label className="absolute z-10 top-0 left-0 text-white p-2 bg-black m-2 rounded-lg">Promoted</label>
-        <RestaurantCard {...props}/>
+        <label className="absolute z-10 top-0 left-0 text-white p-2 bg-black m-2 rounded-lg">
+          Promoted
+        </label>
+        <RestaurantCard {...props} />
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default RestaurantCard;

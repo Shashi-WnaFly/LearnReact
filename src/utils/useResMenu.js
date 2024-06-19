@@ -12,7 +12,7 @@ const useResMenu = (resId) => {
 
     useEffect(()=>{
         getData();
-    })
+    },[]);
 
     return resMenu;
 }
