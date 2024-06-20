@@ -32,7 +32,7 @@ const RestaurantCard = (props) => {
         <div>{name}</div>
         <p className=" flex items-center">
           {" "}
-          <IoMdStar size={18} className="fa-star" />
+          <IoMdStar size={18}/>
           {avgRating}
           <GoDotFill size={8} />
           {sla.slaString}
