@@ -3,7 +3,7 @@ import { GoDotFill } from "react-icons/go";
 import { IoMdStar, IoIosBicycle } from "react-icons/io";
 import { SiCommonworkflowlanguage } from "react-icons/si";
 
-const RestaurantTopDetails = ({ resDetails }) => {
+const RestaurantTopDetails = ({ restaurantInfo }) => {
   const {
     name,
     avgRatingString,
@@ -13,19 +13,21 @@ const RestaurantTopDetails = ({ resDetails }) => {
     cuisines,
     feeDetails,
     sla,
-  } = resDetails?.data?.cards[2]?.card?.card?.info;
+  } = restaurantInfo?.data?.cards[2]?.card?.card?.info;
   return (
-    <div>
+    <div className="border-l-rose-600">
       <div>
-        <Link className=" text-xs font-light pb-2" to={"/"}>
+        <Link className=" text-xs font-light pb-2 cursor-pointer" to={"/"}>
           Home / <span className="font-normal">{name}</span>
         </Link>
       </div>
+
       <div className="my-5">
         <span className=" text-2xl font-bold pl-4 pb-3">{name}</span>
       </div>
-      <div>
-        <div className="p-4  border-2 border-black-600 rounded-2xl">
+
+      <div className=" pb-4 rounded-2xl">
+        <div className=" border-2 rounded-2xl mx-4 p-4 shadow-xl">
           <div className=" font-bold flex content-center">
             <span className=" inline-flex self-center p-0.5 text-white bg-green-600 rounded-full">
               {<IoMdStar />}
@@ -35,12 +37,14 @@ const RestaurantTopDetails = ({ resDetails }) => {
               {costForTwoMessage}
             </span>
           </div>
+
           <p className=" font-bold text-orange-500 underline text-sm p-1">
             {cuisines.join(", ")}
           </p>
+
           <div className=" flex align-middle text-sm font-bold leading-8">
-            <span className=" inline-flex w-6 self-stretch">
-              <SiCommonworkflowlanguage size={40} />
+            <span className=" flex items-center text-gray-300">
+              <SiCommonworkflowlanguage size={40}/>
             </span>
             <div>
               <span>Outlet </span>
@@ -48,6 +52,7 @@ const RestaurantTopDetails = ({ resDetails }) => {
               <p>{sla?.slaString.toLowerCase()}</p>
             </div>
           </div>
+
           <div className=" flex mt-4 align-middle">
             <span className="inline-flex self-center">
               <IoIosBicycle />
