@@ -1,13 +1,14 @@
 import ItemList from "./ItemList";
 import { useState } from "react";
 
-const CategoryItems = ({ list }) => {
-  const [showItems, setShowItems] = useState(false);
-
+const CategoryItems = ({ list, showItems, setShowIndex}) => {
+  const [open, setOpen] = useState(false);
+  
   const showHandle = () => {
-    setShowItems(!showItems);
+    setShowIndex();
+    setOpen(!open);
   }
-  // console.log(items);
+  
   return (
     <div>
       <h1
@@ -17,7 +18,7 @@ const CategoryItems = ({ list }) => {
       >
         {list?.title} ({list?.itemCards.length})
       </h1>
-      {showItems && <ItemList items={list?.itemCards} />}
+      {showItems && open && <ItemList items={list?.itemCards} />}
     </div>
   );
 };
