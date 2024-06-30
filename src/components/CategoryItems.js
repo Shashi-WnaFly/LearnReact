@@ -1,7 +1,7 @@
 import ItemList from "./ItemList";
 import { useState } from "react";
 
-const CategoryItems = ({ list, showItems, setShowIndex}) => {
+const CategoryItems = ({ list, showItems, setShowIndex }) => {
   const [open, setOpen] = useState(false);
   
   const showHandle = () => {
@@ -10,10 +10,9 @@ const CategoryItems = ({ list, showItems, setShowIndex}) => {
   }
   
   return (
-    <div>
+    <div key={list?.title}>
       <h1
         className=" font-bold p-2 border-b-4 my-4 cursor-pointer"
-        key={list?.title}
         onClick={showHandle}
       >
         {list?.title} ({list?.itemCards.length})

@@ -1,21 +1,41 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import Shimmer from "./components/Shimmer";
+// import Shimmer from "./components/Shimmer";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import ResItem from "./components/ResItem";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  UNSAFE_RouteContext,
+} from "react-router-dom";
+import userContext from "./utils/userContext";
 
 const Service = lazy(() => import("./components/Service"));
 const About = lazy(() => import("./components/About"));
-const AppLayout = () => (
-  <div className="AppLayout">
-    <Header />
-    <Outlet />
-  </div>
-);
+
+const AppLayout = () => {
+  const [userName, setUserName] = useState("Default Name");
+
+  useEffect(() => {
+    const data = {
+      Name: "Shashi Anand",
+    };
+    setUserName(data.Name);
+  }, []);
+
+  return (
+    <userContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className="AppLayout">
+        <Header />
+        <Outlet />
+      </div>
+    </userContext.Provider>
+  );
+};
 
 const AppRouter = createBrowserRouter([
   {

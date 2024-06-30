@@ -10,8 +10,8 @@ const ResItem = () => {
   const resMenu = useResMenu(resId);
   const [showIndex, setShowIndex] = useState(0);
 
-  console.log(resMenu);
-
+  // console.log(resMenu);
+  
   if (resMenu === null) return <Shimmer />;
 
   const items =

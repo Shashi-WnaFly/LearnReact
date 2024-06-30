@@ -1,6 +1,8 @@
 import { CARD_IMG_URL } from "../utils/constants";
 import { GoDotFill } from "react-icons/go";
 import { IoMdStar } from "react-icons/io";
+import userContext from "../utils/userContext";
+import { useContext } from "react";
 const RestaurantCard = (props) => {
   const { resData } = props;
   const {
@@ -13,6 +15,7 @@ const RestaurantCard = (props) => {
     aggregatedDiscountInfoV3,
   } = resData?.info;
   // console.log(resData);
+  const {loggedInUser} = useContext(userContext);
   return (
     <div className=" w-64 h-80">
       <div className=" w-full h-3/6 relative">
@@ -39,6 +42,7 @@ const RestaurantCard = (props) => {
         </p>
         <p className="">{cuisines.join(", ")}</p>
         <p>{locality}</p>
+        <p>loggedInUser : {loggedInUser}</p>
       </div>
     </div>
   );

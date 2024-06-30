@@ -1,9 +1,10 @@
 import RestaurantCard, { PromotedRestaurant } from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { RESTAURANT_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
 
 const Body = () => {
   const [RestaurantList, setRestaurantList] = useState([]);
@@ -33,6 +34,7 @@ const Body = () => {
   }, []);
 
   const WithPromotedLevel = PromotedRestaurant(RestaurantCard);
+  const { userName, setUserName } = useContext(userContext);
 
   const onlineStat = useOnlineStatus();
   if (onlineStat === false)
@@ -41,18 +43,13 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className=" w-full">
-      <div className="">
-        <button
-          className=""
-          onClick={() => {
-            const filteredList = RestaurantList.filter(
-              (res) => res.info.avgRating > 4
-            );
-            setFilteredList(filteredList);
-          }}
-        >
-          Top Rated Restaurant
-        </button>
+      <div className="flex items-center">
+        <div className="border border-orange-500 p-2">
+          <input
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </div>
         <div>
           <input
             type="text"
