@@ -6,6 +6,7 @@ import Body from "./components/Body";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import ResItem from "./components/ResItem";
+import Cart from "./components/Cart";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -69,6 +70,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "/restaurant_menu/:resId",
         element: <ResItem />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />
       },
     ],
     errorElement: <Error />,

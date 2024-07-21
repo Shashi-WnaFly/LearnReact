@@ -27,6 +27,9 @@ const Header = () => {
             <Link to="/contactus">Contacts</Link>
           </li>
           <li>
+            <Link to={"/cart"}>Cart ({0} items)</Link>
+          </li>
+          <li>
             <button
               className="transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none hover:text-blue-600 ..."
               onClick={() => {
