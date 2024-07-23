@@ -11,9 +11,10 @@ import {
   createBrowserRouter,
   RouterProvider,
   Outlet,
-  UNSAFE_RouteContext,
 } from "react-router-dom";
 import userContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const Service = lazy(() => import("./components/Service"));
 const About = lazy(() => import("./components/About"));
@@ -29,12 +30,14 @@ const AppLayout = () => {
   }, []);
 
   return (
+    <Provider store={appStore}>
     <userContext.Provider value={{ loggedInUser: userName, setUserName }}>
       <div className="AppLayout">
         <Header />
         <Outlet />
       </div>
     </userContext.Provider>
+    </Provider>
   );
 };
 
