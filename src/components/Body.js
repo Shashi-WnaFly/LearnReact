@@ -70,7 +70,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="flex w-10/12 justify-evenly gap-5 flex-wrap pt-10 ml-auto mr-auto">
+      <div className="flex w-9/12 gap-7 justify-evenly flex-wrap pt-10 m-auto">
         {FilteredList.map((restaurant) => (
           <Link
             key={restaurant?.info.id}

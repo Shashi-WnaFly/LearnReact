@@ -1,8 +1,6 @@
 import { CARD_IMG_URL } from "../utils/constants";
 import { GoDotFill } from "react-icons/go";
 import { IoMdStar } from "react-icons/io";
-import userContext from "../utils/userContext";
-import { useContext } from "react";
 const RestaurantCard = (props) => {
   const { resData } = props;
   const {
@@ -15,34 +13,33 @@ const RestaurantCard = (props) => {
     aggregatedDiscountInfoV3,
   } = resData?.info;
   // console.log(resData);
-  const {loggedInUser} = useContext(userContext);
   return (
-    <div className=" w-64 h-80">
-      <div className=" w-full h-3/6 relative rounded-2xl">
+    <div className=" w-64 ">
+      <div className=" w-full h-4/5 relative">
         <img
           src={CARD_IMG_URL + cloudinaryImageId}
           alt="food logo"
-          className="h-full w-full object-cover rounded-2xl"
+          className="w-full object-cover rounded-2xl h-44"
         />
-        <div className="flex justify-center">
-          <p className="absolute bottom-0 text-white w-11/12 self-center">
+        <div className=" absolute bottom-0 w-full ">
+          <p className=" absolute bottom-2  text-white w-11/12 ml-3 font-extrabold text-xl">
             {aggregatedDiscountInfoV3?.header}{" "}
             {aggregatedDiscountInfoV3?.subHeader}
           </p>
         </div>
       </div>
-      <div className=" overflow-hidden text-nowrap text-ellipsis">
-        <div>{name}</div>
-        <p className=" flex items-center">
+      <div className=" overflow-hidden text-nowrap text-ellipsis pl-2 pt-2">
+        <div className=" font-bold text-lg">{name}</div>
+        <div className=" flex items-center font-semibold">
           {" "}
-          <IoMdStar size={18}/>
-          {avgRating}
-          <GoDotFill size={8} />
-          {sla.slaString}
-        </p>
+          <IoMdStar size={18} className=" p-0.5 bg-green-700 rounded-full text-white"/>
+          <p className="ml-0.5 flex items-center">{avgRating}
+          <GoDotFill size={8}/>
+          </p>
+          <p>{sla.slaString}</p>
+        </div>
         <p className="">{cuisines.join(", ")}</p>
         <p>{locality}</p>
-        <p>loggedInUser : {loggedInUser}</p>
       </div>
     </div>
   );
