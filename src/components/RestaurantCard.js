@@ -18,11 +18,11 @@ const RestaurantCard = (props) => {
   const {loggedInUser} = useContext(userContext);
   return (
     <div className=" w-64 h-80">
-      <div className=" w-full h-3/6 relative">
+      <div className=" w-full h-3/6 relative rounded-2xl">
         <img
           src={CARD_IMG_URL + cloudinaryImageId}
           alt="food logo"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover rounded-2xl"
         />
         <div className="flex justify-center">
           <p className="absolute bottom-0 text-white w-11/12 self-center">
