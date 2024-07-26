@@ -15,13 +15,14 @@ const Body = () => {
     try {
       const data = await fetch(RESTAURANT_API);
       const json = await data.json();
+      console.log(json);
 
       setRestaurantList(
-        json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
+        json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
           ?.restaurants
       );
       setFilteredList(
-        json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
+        json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
           ?.restaurants
       );
     } catch {
