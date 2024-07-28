@@ -51,6 +51,7 @@ const Body = () => {
             onChange={(e) => setUserName(e.target.value)}
           />
         </div>
+        <img src={require("../../images/d94f8a12-6cb9-4b49-ab4d-7e4f452a0f09_PCTile.avif")} />
         <div>
           <input
             type="text"
