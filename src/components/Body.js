@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { RESTAURANT_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/userContext";
+import YourMind from "./YourMind";
 
 const Body = () => {
   const [RestaurantList, setRestaurantList] = useState([]);
@@ -44,15 +45,16 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className=" w-full">
-      <div className="flex items-center">
-        <div className="border border-orange-500 p-2">
+      <YourMind />
+      {/* <div className="flex items-center"> */}
+        {/* <div className="border border-orange-500 p-2">
           <input
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           />
-        </div>
-        <img src={require("../../images/d94f8a12-6cb9-4b49-ab4d-7e4f452a0f09_PCTile.avif")} />
-        <div>
+        </div> */}
+
+        {/* <div>
           <input
             type="text"
             value={SearchRes}
@@ -70,8 +72,8 @@ const Body = () => {
           >
             Search
           </button>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
       <div className="flex w-9/12 gap-7 justify-evenly flex-wrap pt-10 m-auto">
         {FilteredList.map((restaurant) => (
           <Link
