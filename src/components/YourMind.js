@@ -24,11 +24,11 @@ import {
 
 const YourMind = () => {
 
-    const handleWheel = (e) => { 
-        e.preventDefault();
-        let slider = document.getElementById('slider');
-        slider.scrollLeft += e.deltaY;  
-    }
+    // const handleWheel = (e) => { 
+    //     e.preventDefault();
+    //     let slider = document.getElementById('slider');
+    //     slider.scrollLeft += e.deltaY;  
+    // }
 
     const handleRightArrow = () => {
         let slider = document.getElementById('slider');
@@ -53,8 +53,8 @@ const YourMind = () => {
         </div>
       </div>
 
-      <div onWheel={handleWheel} className=" flex object-center">
-        <div id="slider" className=" w-full h-full flex gap-6 overflow-x-scroll scroll scroll-smooth whitespace-nowrap">
+      <div className=" flex object-center">
+        <div id="slider" className=" w-full h-full flex gap-6 overflow-x-scroll scroll scroll-smooth whitespace-nowrap scrollbar-hide ">
           <img src={PURE_VEG_DELIGHTS} className="inline-block w-36" />
           <img src={BIRYANI} className="inline-block w-36" />
           <img src={PIZZAS} className=" inline-block w-36 " />
