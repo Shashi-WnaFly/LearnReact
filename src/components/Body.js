@@ -46,34 +46,8 @@ const Body = () => {
   ) : (
     <div className=" w-full">
       <YourMind />
-      {/* <div className="flex items-center"> */}
-        {/* <div className="border border-orange-500 p-2">
-          <input
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </div> */}
-
-        {/* <div>
-          <input
-            type="text"
-            value={SearchRes}
-            onChange={(e) => {
-              setSearchRes(e.target.value);
-            }}
-          />
-          <button
-            onClick={() => {
-              const filteredList = RestaurantList.filter((res) =>
-                res.info.name.toLowerCase().includes(SearchRes.toLowerCase())
-              );
-              setFilteredList(filteredList);
-            }}
-          >
-            Search
-          </button>
-        </div> */}
-      {/* </div> */}
+      <div className="my-8 border-b-2 w-[73%] mx-auto"></div>
+      
       <div className="flex w-9/12 gap-7 justify-evenly flex-wrap pt-10 m-auto">
         {FilteredList.map((restaurant) => (
           <Link
