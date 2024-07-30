@@ -6,6 +6,7 @@ import { RESTAURANT_API } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/userContext";
 import YourMind from "./YourMind";
+import TopChainRestaurant from "./TopChainRestaurant";
 
 const Body = () => {
   const [RestaurantList, setRestaurantList] = useState([]);
@@ -47,7 +48,7 @@ const Body = () => {
     <div className=" w-full">
       <YourMind />
       <div className="my-8 border-b-2 w-[73%] mx-auto"></div>
-      
+      <TopChainRestaurant resList = {FilteredList} />
       <div className="flex w-9/12 gap-7 justify-evenly flex-wrap pt-10 m-auto">
         {FilteredList.map((restaurant) => (
           <Link

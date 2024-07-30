@@ -1,15 +1,15 @@
-import { FaArrowCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 import { topCategoryScroll } from "../utils/constants";
 
 const YourMind = () => {
 
     const handleRightArrow = () => {
         let slider = document.getElementById('slider');
-        slider.scrollLeft += 560;
+        slider.scrollLeft += 565;
     };
     const handleLeftArrow = () => {
         let slider = document.getElementById('slider');
-        slider.scrollLeft -=560;
+        slider.scrollLeft -=565;
     };
 
   return (
@@ -18,7 +18,7 @@ const YourMind = () => {
         <h3 className=" font-bold text-2xl">What's on your mind</h3>
         <div className=" flex justify-between gap-2">
           <button onClick={handleLeftArrow} >
-            <FaArrowAltCircleLeft size={30} className=" rounded-full "/>
+            <FaArrowCircleLeft size={30} className=" rounded-full"/>
           </button>
           <button onClick={handleRightArrow} className=" rounded-full">
             <FaArrowCircleRight size={30} />
