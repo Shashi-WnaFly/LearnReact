@@ -6,31 +6,46 @@ const TopChainRestaurant = (props) => {
 
   const handleRightArrow = () => {
     let slider = document.getElementById("resSlider");
-    slider.scrollLeft += 560;
+    slider.scrollLeft += 720;
+    if(slider.scrollLeft <= 0){
+      let left = document.getElementById('left');
+      {left.style.color = 'black'}
+    }
   };
   const handleLeftArrow = () => {
     let slider = document.getElementById("resSlider");
-    slider.scrollLeft -= 560;
+    slider.scrollLeft -= 720;
+    if(slider.scrollLeft <= 300){
+      let left = document.getElementById('left');
+      {left.style.color = '#d1d5db'}
+    }
   };
   return (
     <div className=" w-9/12 mx-auto">
-      <div className="flex justify-between mx-4 mb-4">
-        <h3 className=" font-bold text-2xl mt-4">Top restaurant chains in patna</h3>
-        <div className=" flex gap-2 mt-4">
-          <button onClick={handleLeftArrow}>
-            <FaArrowCircleLeft size={30} className=" rounded-full" />
-          </button>
-          <button onClick={handleRightArrow} className=" rounded-full">
-            <FaArrowCircleRight size={30} />
-          </button>
+      <div className="">
+        <div className="flex justify-between m-4">
+          <div className=" font-bold text-2xl mt-4">
+            Top restaurant chains in patna
+          </div>
+          <div className=" flex gap-2 items-end">
+            <button onClick={handleLeftArrow} id="left" className=" text-gray-300 rounded-full" >
+              <FaArrowCircleLeft size={30} />
+            </button>
+            <button onClick={handleRightArrow} className=" rounded-full">
+              <FaArrowCircleRight size={30} />
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className=" flex object-center">
-        <div id="resSlider" className="w-full h-full flex overflow-x-scroll scroll scroll-smooth gap-4 p-4 whitespace-nowrap scrollbar-hide">
-          {
-            resList.map((res) => <RestaurantCard resData={res} />)
-          }
+      <div className=" flex object-center relative">
+        <div
+          id="resSlider"
+          className="w-full h-full flex overflow-x-scroll scroll scroll-smooth gap-8 p-4 whitespace-nowrap scrollbar-hide"
+        >
+          {resList.map((res) => (
+            <RestaurantCard resData={res} />
+          ))}
         </div>
       </div>
     </div>
