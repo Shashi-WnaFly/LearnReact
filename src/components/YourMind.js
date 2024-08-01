@@ -1,4 +1,4 @@
-import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+import { FiArrowRight , FiArrowLeft } from "react-icons/fi";
 import { topCategoryScroll } from "../utils/constants";
 
 const YourMind = () => {
@@ -16,12 +16,12 @@ const YourMind = () => {
     <div className=" w-9/12 mx-auto pt-4">
       <div className="flex justify-between mx-4 mb-4">
         <h3 className=" font-bold text-2xl">What's on your mind</h3>
-        <div className=" flex justify-between gap-2">
-          <button onClick={handleLeftArrow} >
-            <FaArrowCircleLeft size={30} className=" rounded-full"/>
+        <div className=" flex justify-between gap-3">
+          <button onClick={handleLeftArrow} className=" rounded-full p-2 bg-[#d7d8d9]">
+            <FiArrowLeft size={17} />
           </button>
-          <button onClick={handleRightArrow} className=" rounded-full">
-            <FaArrowCircleRight size={30} />
+          <button onClick={handleRightArrow} className=" rounded-full p-2 bg-[#d7d8d9]">
+            <FiArrowRight size={17} />
           </button>
         </div>
       </div>

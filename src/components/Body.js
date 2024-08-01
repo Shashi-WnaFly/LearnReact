@@ -20,11 +20,11 @@ const Body = () => {
       console.log(json);
 
       setRestaurantList(
-        json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+        json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
           ?.restaurants
       );
       setFilteredList(
-        json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+        json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
           ?.restaurants
       );
     } catch {

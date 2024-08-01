@@ -1,5 +1,5 @@
 import RestaurantCard from "./RestaurantCard";
-import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
+import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 
 const TopChainRestaurant = (props) => {
   const { resList } = props;
@@ -7,17 +7,23 @@ const TopChainRestaurant = (props) => {
   const handleRightArrow = () => {
     let slider = document.getElementById("resSlider");
     slider.scrollLeft += 720;
-    if(slider.scrollLeft <= 0){
-      let left = document.getElementById('left');
-      {left.style.color = 'black'}
+    if (slider.scrollLeft <= 0) {
+      let left = document.getElementById("left");
+      {
+        left.style.color = "black";
+        left.style.background = "#d7d8d9";
+      }
     }
   };
   const handleLeftArrow = () => {
     let slider = document.getElementById("resSlider");
     slider.scrollLeft -= 720;
-    if(slider.scrollLeft <= 300){
-      let left = document.getElementById('left');
-      {left.style.color = '#d1d5db'}
+    if (slider.scrollLeft <= 0) {
+      let left = document.getElementById("left");
+      {
+        left.style.background = "#e5e7eb";
+        left.style.color = "#9ca3af";
+      }
     }
   };
   return (
@@ -27,12 +33,19 @@ const TopChainRestaurant = (props) => {
           <div className=" font-bold text-2xl mt-4">
             Top restaurant chains in patna
           </div>
-          <div className=" flex gap-2 items-end">
-            <button onClick={handleLeftArrow} id="left" className=" text-gray-300 rounded-full" >
-              <FaArrowCircleLeft size={30} />
+          <div className=" flex gap-3 items-end">
+            <button
+              onClick={handleLeftArrow}
+              id="left"
+              className=" text-gray-400 rounded-full bg-[#d7d8d9] p-2"
+            >
+              <FiArrowLeft size={17} />
             </button>
-            <button onClick={handleRightArrow} className=" rounded-full">
-              <FaArrowCircleRight size={30} />
+            <button
+              onClick={handleRightArrow}
+              className=" rounded-full bg-[#d7d8d9] p-2"
+            >
+              <FiArrowRight size={17} />
             </button>
           </div>
         </div>
@@ -41,7 +54,7 @@ const TopChainRestaurant = (props) => {
       <div className=" flex object-center relative">
         <div
           id="resSlider"
-          className="w-full h-full flex overflow-x-scroll scroll scroll-smooth gap-8 p-4 whitespace-nowrap scrollbar-hide"
+          className="w-full h-full flex overflow-x-scroll scroll scroll-smooth gap-8 px-4 whitespace-nowrap scrollbar-hide"
         >
           {resList.map((res) => (
             <RestaurantCard resData={res} />
