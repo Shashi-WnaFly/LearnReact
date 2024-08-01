@@ -27,27 +27,25 @@ const TopChainRestaurant = (props) => {
     }
   };
   return (
-    <div className=" w-9/12 mx-auto">
-      <div className="">
-        <div className="flex justify-between m-4">
-          <div className=" font-bold text-2xl mt-4">
-            Top restaurant chains in patna
-          </div>
-          <div className=" flex gap-3 items-end">
-            <button
-              onClick={handleLeftArrow}
-              id="left"
-              className=" text-gray-400 rounded-full bg-[#d7d8d9] p-2"
-            >
-              <FiArrowLeft size={17} />
-            </button>
-            <button
-              onClick={handleRightArrow}
-              className=" rounded-full bg-[#d7d8d9] p-2"
-            >
-              <FiArrowRight size={17} />
-            </button>
-          </div>
+    <div className=" w-9/12 mx-auto pt-px">
+      <div className="flex justify-between m-4">
+        <div className=" font-bold text-2xl">
+          Top restaurant chains in patna
+        </div>
+        <div className=" flex gap-3 items-end">
+          <button
+            onClick={handleLeftArrow}
+            id="left"
+            className=" rounded-full bg-[#d7d8d9] p-2"
+          >
+            <FiArrowLeft size={17} />
+          </button>
+          <button
+            onClick={handleRightArrow}
+            className=" rounded-full bg-[#d7d8d9] p-2"
+          >
+            <FiArrowRight size={17} />
+          </button>
         </div>
       </div>
 
