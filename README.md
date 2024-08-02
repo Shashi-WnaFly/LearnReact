@@ -16,10 +16,16 @@ This is my react journey
     - End To End Testing (e2e testing)
 
 # Setting up Testing in our app
-    - install React Testing Library
-    - install jest
-    - install babel dependencies
-    - configure the babel.config.js at the root level
-    - create .parcelrc file at root level
-    - configure Parcel config (.parcelrc) file to disable babel transpilation
-      to avoid conflict btw babel configuration
+    - Install React Testing Library
+    - Install jest
+    - Install babel dependencies from jest
+    - Configure the babel.config.js at the root level
+    - Create .parcelrc file at root level
+    - Configure Parcel (.parcelrc) file to disable babel transpilation
+      To avoid conflict btw default and current babel configuration
+    - Configure jest using npx jest --init
+    - Install jsdom library
+    - Create __tests__ directory any where in the folder structure
+    - Install @babel/preset-react --> to make JSX work in test cases
+    - Include @babel/preset-react inside in the babel config
+    - Install @testing-library/jest-dom 
