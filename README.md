@@ -28,4 +28,4 @@ This is my react journey
     - Create __tests__ directory any where in the folder structure
     - Install @babel/preset-react --> to make JSX work in test cases
     - Include @babel/preset-react inside in the babel config
-    - Install @testing-library/jest-dom 
+    - Install @testing-library/jest-dom

@@ -3,7 +3,7 @@ import React from "react";
 const ContactUs = () => {
   return (
     <div>
-      <div className="font-bold text-2xl p-4 m-4">ContactUs</div>
+      <h1 className="font-bold text-2xl p-4 m-4">ContactUs</h1>
       <form>
         <input className="ml-4 p-4 border-y-2 border-black" placeholder="enter your name"/>
         <input className="ml-4 p-4 border-y-2 border-black" placeholder="enter your age"/>
