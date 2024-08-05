@@ -11,7 +11,7 @@ import TopChainRestaurant from "./TopChainRestaurant";
 const Body = () => {
   const [RestaurantList, setRestaurantList] = useState([]);
   const [FilteredList, setFilteredList] = useState([]);
-  const [SearchRes, setSearchRes] = useState("");
+  // const [SearchRes, setSearchRes] = useState("");
 
   async function getCards() {
     try {
