@@ -6,7 +6,7 @@ import "@testing-library/jest-dom";
 it("should render the Restaurant Card component", () => {
     render(<RestaurantCard resData={ResCardMock}/>);
 
-    const name = screen.getByTest("Pannalal");
+    const name = screen.getByText("Pannalal");
 
     expect(name).toBeInTheDocument();
 })
