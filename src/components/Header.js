@@ -1,4 +1,5 @@
 // import { LOGO_URL } from "../utils/constants";
+import { SiSwiggy } from "react-icons/si";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -13,7 +14,7 @@ const Header = () => {
 
   return (
     <div className="flex justify-between p-4 items-center font-medium text-lg">
-      {/* <img src={LOGO_URL} alt="logo" id="logo" className="w-16 ml-4" /> */}
+      <div className="ml-5 text-orange-500"><SiSwiggy size={50}/></div>
       <div>
         <ul className="flex gap-6 mr-5">
           <li>Connectivity : {onlineStat == false ? "🔴" : "✅"}</li>
