@@ -14,7 +14,7 @@ const RestaurantCard = (props) => {
   } = resData?.info;
   // console.log(resData);
   return (
-    <div className=" w-64 h-fit hover:scale-95 transition-transform flex-shrink-0 relative">
+    <div className=" w-64 h-fit hover:scale-95 transition-transform flex-shrink-0 relative" data-testid="restrawCard">
       <div className=" w-full h-4/5 relative">
         <img
           src={CARD_IMG_URL + cloudinaryImageId}

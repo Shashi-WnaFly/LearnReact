@@ -11,7 +11,7 @@ import TopChainRestaurant from "./TopChainRestaurant";
 const Body = () => {
   const [RestaurantList, setRestaurantList] = useState([]);
   const [FilteredList, setFilteredList] = useState([]);
-  // const [SearchRes, setSearchRes] = useState("");
+  const [SearchRes, setSearchRes] = useState("");
 
   async function getCards() {
     try {
@@ -36,6 +36,11 @@ const Body = () => {
     getCards();
   }, []);
 
+  function handleSearch(){
+    const filterList = RestaurantList.filter((res) => res?.info?.name.toLowerCase().includes(SearchRes.toLowerCase()));
+    setFilteredList(filterList)
+  }
+
   const WithPromotedLevel = PromotedRestaurant(RestaurantCard);
   const { userName, setUserName } = useContext(userContext);
 
@@ -47,8 +52,14 @@ const Body = () => {
   ) : (
     <div className=" w-full">
       <YourMind />
+      <div className="flex gap-2 w-9/12 mx-auto">
+        <div><input type="text" placeholder="search here" className="p-2 border-red-300 border rounded-md" value={SearchRes} onChange={(e) => {
+          setSearchRes(e.target.value);
+        }}/></div>
+        <button className="px-6 py-2 text-white bg-blue-500 rounded-full" onClick={handleSearch}>Search</button>
+      </div>
       <div className="my-8 border-b-2 w-[73%] mx-auto"></div>
-      <TopChainRestaurant resList = {FilteredList} />
+      {/* <TopChainRestaurant resList = {FilteredList} /> */}
       <div className="flex w-9/12 gap-7 justify-evenly flex-wrap pt-10 m-auto">
         {FilteredList.map((restaurant) => (
           <Link
