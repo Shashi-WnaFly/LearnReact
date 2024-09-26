@@ -21,8 +21,8 @@ const RestaurantCard = (props) => {
           alt="food logo"
           className="w-full object-cover rounded-2xl h-44"
         />
-        <div className=" absolute bottom-0 w-full ">
-          <p className=" mb-2  text-white w-11/12 ml-3 font-extrabold text-xl">
+        <div className="h-1/2 absolute bottom-0 w-full bg-gradient-to-t from-black flex rounded-xl">
+          <p className=" mb-2 text-white w-11/12 ml-3 font-extrabold text-xl self-end">
             {aggregatedDiscountInfoV3?.header}{" "}
             {aggregatedDiscountInfoV3?.subHeader}
           </p>

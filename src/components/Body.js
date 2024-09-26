@@ -40,6 +40,10 @@ const Body = () => {
     const filterList = RestaurantList.filter((res) => res?.info?.name.toLowerCase().includes(SearchRes.toLowerCase()));
     setFilteredList(filterList)
   }
+  function handleTopRatedRes(){
+    const topRatedRes = RestaurantList.filter((res) => res?.info?.avgRating >= 4 ? res : null);
+    setFilteredList(topRatedRes);
+  }
 
   const WithPromotedLevel = PromotedRestaurant(RestaurantCard);
   const { userName, setUserName } = useContext(userContext);
@@ -57,9 +61,10 @@ const Body = () => {
           setSearchRes(e.target.value);
         }}/></div>
         <button className="px-6 py-2 text-white bg-blue-500 rounded-full" onClick={handleSearch}>Search</button>
+        <button className=" py-2 px-6 rounded-md bg-green-600 text-white" onClick={handleTopRatedRes}>Top Rated Restaurant</button>
       </div>
       <div className="my-8 border-b-2 w-[73%] mx-auto"></div>
-      {/* <TopChainRestaurant resList = {FilteredList} /> */}
+      <TopChainRestaurant resList = {FilteredList} />
       <div className="flex w-9/12 gap-7 justify-evenly flex-wrap pt-10 m-auto">
         {FilteredList.map((restaurant) => (
           <Link
